@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,19 +10,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String fullName;
-    private String phoneNumber;
     private String email;
+    private String password;
+    private String phoneNumber;
+    private String fullName;
+    private String address;
 
     public User() {
     }
 
-    public User(String email, String phoneNumber, String fullName, Long id) {
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.fullName = fullName;
-        this.id = id;
-    }
 
     public Long getId() {
         return id;
@@ -56,6 +52,22 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -63,6 +75,8 @@ public class User {
                 ", fullName='" + fullName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
